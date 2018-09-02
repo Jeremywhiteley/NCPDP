@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018 NCPDP. All rights reserved. National Council for Prescription Drugs Programs, Inc. (NCPDP) publications are owned by NCPDP, 9240 East Raintree Drive Scottsdale, AZ 85260, and protected by the copyright laws of the United States. 17 U.S.C. §101, et. seq.   
+
+Permission is given to Council members to copy and use the work or any part thereof in connection with the business purposes of the Council members. The work may not be changed or altered. The work may be shared within the member company but may not be distributed and/or copied for/by others outside of the member’s company. The work may not be sold, used or exploited for commercial purposes. This permission may be revoked by NCPDP at any time. NCPDP is not responsible for any errors or damage as a result of the use of the work.
+
+All material is provided "as is", without warranty of any kind, expressed or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, accuracy, completeness and non-infringement of third party rights. In no event shall NCPDP, its members or its contributors be liable for any claim, or any direct, special, indirect or consequential damages, or any damages whatsoever resulting from loss of use, data or profits, whether in an action of contract, negligence or other tortious action, arising out of or in connection with the use or performance of the material.
+
+NCPDP recognizes the confidentiality of certain information exchanged electronically through the use of its standards. Users should be familiar with the federal, state, and local laws, regulations and codes requiring confidentiality of this information and should utilize the standards accordingly.
+
+NOTICE: In addition, this NCPDP Standard contains certain data fields and elements that may be completed by users with the proprietary information of third parties. The use and distribution of third parties' proprietary information without such third parties' consent, or the execution of a license or other agreement with such third party, could subject the user to numerous legal claims. All users are encouraged to contact such third parties to determine whether such information is proprietary and if necessary, to consult with legal counsel to make arrangements for the use and distribution of such proprietary information.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="20170714">
+	<xsd:include schemaLocation="ecl.xsd"/>
+	<xsd:include schemaLocation="datatypes.xsd"/>
+	<xsd:include schemaLocation="structures.xsd"/>
+	<xsd:include schemaLocation="script.xsd"/>
+	<xsd:include schemaLocation="specialized.xsd"/>
+	<xsd:include schemaLocation="transport.xsd"/> 
+	<!-- ================================================== -->
+	<!-- =====  Element Declarations  -->
+	<!-- ================================================== -->
+	<xsd:element name="Attachment" type="Attachment"/>
+	<xsd:element name="CFInventoryList" type="CFInventoryList"/>
+	<xsd:element name="CFManifest" type="CFManifest"/>
+	<xsd:element name="CFProductInquiry" type="CFProductInquiry"/>
+	<xsd:element name="CFProductInquiryResponse" type="CFProductInquiryResponse"/>
+	<xsd:element name="CFRxOrderCancel" type="CFRxOrderCancel"/>
+	<xsd:element name="CFRxOrderCompletion" type="CFRxOrderCompletion"/>
+	<xsd:element name="CFRxOrderRequest" type="CFRxOrderRequest"/>
+	<xsd:element name="CancelRx" type="CancelRx"/>
+	<xsd:element name="CancelRxResponse" type="CancelRxResponse"/>
+	<xsd:element name="CensusMessage" type="Census"/>
+	<xsd:element name="ClinicalInfoResponse" type="ClinicalInfoResponse">
+		<xsd:annotation>
+			<xsd:documentation>The QueryResponse will indicate if the request is denied or approved and how the information will be sent.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ClinicalInforRequest" type="ClinicalInfoRequest"/>
+	<xsd:element name="DrugAdminstration" type="DrugAdministration"/>
+	<xsd:element name="Error" type="Error">
+		<xsd:annotation>
+			<xsd:documentation>This transaction response indicates an error has occurred indicating the request was terminated. An Error can be generated when there is a communication problem or when the transaction actually had an error.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FormatSupportedAttachment" type="ClinicalInformationFormatSupported"/>
+	<xsd:element name="GetMessage" type="GetMessage">
+		<xsd:annotation>
+			<xsd:documentation>This transaction is used by the pharmacy or prescriber system to request mail from the Mailbox. It is used repeatedly until the response no more mail is returned from the Mailbox.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MTMServiceDocumentation" type="MTMServiceDocumentation">
+		<xsd:annotation>
+			<xsd:documentation>The Medication Therapy Management (MTM) Service Documentation transaction (MTMServiceDocumentation) is a description of services rendered, which may include clinical information.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MTMServiceRequest" type="MTMServiceRequest"/>
+	<xsd:element name="MTMServiceResponse" type="MTMServiceResponse"/>
+	<xsd:element name="MessageSamples" type="MessageType"/>
+	<xsd:element name="NewRx" type="NewRx"/>
+	<xsd:element name="NewRxRequest" type="NewRxRequest">
+		<xsd:annotation>
+			<xsd:documentation>The NewRxRequest provides the mechanism for a pharmacy to request a new prescription.  If the new prescription request is approved, the NCPDP NewRx transaction will be sent as a follow-up transaction. The NewRx must not be contained in the NewRxResponseDenied.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="NewRxResponseDenied" type="NewRxResponseDenied">
+		<xsd:annotation>
+			<xsd:documentation>The NewRxResponseDenied provides a mechanism for the prescriber to deny the new prescription request. </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PAAppealRequest" type="PAAppealRequest"/>
+	<xsd:element name="PAAppealResponse" type="PAAppealResponse"/>
+	<xsd:element name="PACancelRequest" type="PACancelRequest"/>
+	<xsd:element name="PACancelResponse" type="PACancelResponse"/>
+	<xsd:element name="PAInitiationRequest" type="PAInitiationRequest"/>
+	<xsd:element name="PAInitiationResponse" type="PAInitiationResponse"/>
+	<xsd:element name="PARequest" type="PARequest"/>
+	<xsd:element name="PAResponse" type="PAResponse"/>
+	<xsd:element name="PasswordChange" type="PasswordChange">
+		<xsd:annotation>
+			<xsd:documentation>This transaction is used to establish and initial password between systems, or to change an existing password to a new password.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Pharmacy" type="Pharmacy"/>
+	<xsd:element name="PrescribedMedication" type="PrescribedMedication"/>
+	<xsd:element name="REMSInitiationRequest" type="REMSInitiationRequest"/>
+	<xsd:element name="REMSInitiationResponse" type="REMSInitiationResponse"/>
+	<xsd:element name="REMSRequest" type="REMSRequest"/>
+	<xsd:element name="REMSResponse" type="REMSResponse"/>
+	<xsd:element name="ReasonForSubstitutionCodeUsed" type="ReasonForSubstitutionCodeUsed"/>
+	<xsd:element name="Recertification" type="Recertification"/>
+	<xsd:element name="Resupply" type="Resupply">
+		<xsd:annotation>
+			<xsd:documentation>This transaction is used to send a renewal request from a facility to a pharmacy.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="RxChangeRequest" type="RxChangeRequest"/>
+	<xsd:element name="RxChangeResponse" type="RxChangeResponse"/>
+	<xsd:element name="RxFill" type="RxFill"/>
+	<xsd:element name="RxFillIndicatorChange" type="RxFillIndicatorChange"/>
+	<xsd:element name="RxHistoryRequest" type="RxHistoryRequest"/>
+	<xsd:element name="RxHistoryResponse" type="RxHistoryResponse"/>
+	<xsd:element name="RxRenewalRequest" type="RxRenewalRequest">
+		<xsd:annotation>
+			<xsd:documentation>This transaction is from the pharmacy to the prescriber requesting additional refills.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="RxRenewalResponse" type="RxRenewalResponse">
+		<xsd:annotation>
+			<xsd:documentation>This transaction is the response to a request for additional refills (RxRenewalRequest). The response may be accepted or denied. The response may be a new prescription (replace).</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="RxTransferConfirm" type="RxTransferConfirm"/>
+	<xsd:element name="RxTransferRequest" type="RxTransferRequest"/>
+	<xsd:element name="RxTransferResponse" type="RxTransferResponse"/>
+	<xsd:element name="SIG" type="SIG"/>
+	<xsd:element name="SIGROUTE" type="RouteOfAdministration"/>
+	<xsd:element name="SIGSample" type="SIG"/>
+	<xsd:element name="ServiceType" type="SpecializedServiceType"/>
+	<xsd:element name="Status" type="Status">
+		<xsd:annotation>
+			<xsd:documentation>This response is used to relay acceptance of a transaction back to the sender. A Status in response indicates acceptance and responsibility. A Status in response to a GetMessage indicates that no mail is waiting for pickup. A Status cannot be mailboxed and may not contain an error.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Verify" type="Verify">
+		<xsd:annotation>
+			<xsd:documentation>This transaction is generated when the request transaction asks for return receipt.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- ================================================== -->
+	<!-- =====  Complex Type Definitions  -->
+	<!-- ================================================== -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!--  SIG  <<complexType, xsdGen>>  -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xsd:complexType name="SIG">
+		<xsd:sequence>
+			<xsd:element name="StructuredSIG" type="Sig" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
